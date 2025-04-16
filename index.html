@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="login-container">
+            <h1>Student Management System</h1>
+            <form id="loginForm">
+                <div class="form-group">
+                    <label for="username">Username:</label>
+                    <input type="text" id="username" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <div class="form-group">
+                    <label for="userType">Login As:</label>
+                    <select id="userType" required>
+                        <option value="admin">Admin</option>
+                        <option value="teacher">Teacher</option>
+                        <option value="student">Student</option>
+                    </select>
+                </div>
+                <button type="submit">Login</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="dashboard" class="dashboard hidden">
+        <div class="header">
+            <h2>Welcome, <span id="userName"></span></h2>
+            <button id="logoutBtn">Logout</button>
+        </div>
+        
+        <!-- Admin Dashboard -->
+        <div id="adminDashboard" class="hidden">
+            <h3>Admin Dashboard</h3>
+            
+            <!-- Teacher Management -->
+            <div class="management-section">
+                <h4>Teacher Management</h4>
+                <div class="form-group">
+                    <input type="text" id="teacherName" placeholder="Teacher Name">
+                    <input type="text" id="teacherUsername" placeholder="Username">
+                    <input type="password" id="teacherPassword" placeholder="Password">
+                    <select id="subjectType">
+                        <option value="existing">Select Existing Subject</option>
+                        <option value="custom">Add New Subject</option>
+                    </select>
+                    <select id="teacherSubject">
+                        <option value="Mathematics">Mathematics</option>
+                        <option value="Science">Science</option>
+                        <option value="English">English</option>
+                        <option value="History">History</option>
+                        <option value="Computer Science">Computer Science</option>
+                    </select>
+                    <input type="text" id="customSubject" placeholder="New Subject Name" class="hidden">
+                    <button id="addTeacher">Add Teacher</button>
+                </div>
+                <div class="list-container">
+                    <h5>Current Teachers</h5>
+                    <table id="teacherList">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Username</th>
+                                <th>Subject</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+
+            <!-- Student Management -->
+            <div class="management-section">
+                <h4>Student Management</h4>
+                <div class="form-group">
+                    <input type="text" id="studentName" placeholder="Student Name">
+                    <input type="text" id="studentUsername" placeholder="Username">
+                    <input type="password" id="studentPassword" placeholder="Password">
+                    <button id="addStudent">Add Student</button>
+                </div>
+                <div class="list-container">
+                    <h5>Current Students</h5>
+                    <table id="studentList">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Username</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Existing Teacher and Student Dashboards -->
+        <div id="teacherDashboard" class="hidden">
+            <h3>Teacher Dashboard</h3>
+            <div class="attendance-controls">
+                <select id="studentSelect">
+                    <option value="">Select Student</option>
+                </select>
+                <select id="subjectSelect">
+                    <option value="">Select Subject</option>
+                </select>
+                <input type="date" id="attendanceDate" class="date-input">
+                <button id="markPresent">Mark Present</button>
+                <button id="markAbsent">Mark Absent</button>
+            </div>
+            <div class="attendance-list">
+                <h4>Attendance Records</h4>
+                <table id="attendanceTable">
+                    <thead>
+                        <tr>
+                            <th>Student</th>
+                            <th>Subject</th>
+                            <th>Attendance %</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+
+        <div id="studentDashboard" class="hidden">
+            <h3>Student Dashboard</h3>
+            <div class="attendance-status">
+                <h4>Your Attendance Status</h4>
+                <table id="studentAttendanceTable">
+                    <thead>
+                        <tr>
+                            <th>Subject</th>
+                            <th>Classes Attended</th>
+                            <th>Total Classes</th>
+                            <th>Attendance %</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html> 
